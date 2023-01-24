@@ -83,13 +83,24 @@
     for (var i = 0; i < polygonsCoords.length; i++) {
       let polygon = L.polygon(polygonsCoords[i], {
         color: '#fff',
-        fillColor: '#ffffff',
-        fillOpacity: 0.15,
+        fillColor: '#fff',
+        fillOpacity: 0.1,
         weight: 1,
         dashArray: '3'
       });
       polygon.addTo(map);
-    };
+      var center = polygon.getBounds().getCenter();
+      var center = polygon.getBounds().getCenter();
+      var number = (i + 1).toString();
+      var custom_icon = L.divIcon({
+        className: 'number-icon',
+        html: number
+      });
+      var marker = L.marker(center, { icon: custom_icon }).addTo(map);
+    }
+
+
+
 
 
     L.geolet({ position: 'bottomleft', className: 'locDot', enableHighAccuracy: true, maximumAge: 30000, timeout: 27000 }).addTo(map);
