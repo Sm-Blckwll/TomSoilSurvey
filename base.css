@@ -36,6 +36,15 @@ body {
   z-index: 100;
 }
 
+.leaflet-control-layers-toggle {
+  background-color: var(--dark-background-color);
+}
+
+.leaflet-control-layers-expanded {
+  background-color: var(--dark-background-color);
+  color: var(--light-text-color);
+}
+
 .textCon {
   user-select: none;
   background-color: var(--dark-background-color);
@@ -61,30 +70,6 @@ body {
 
 .emoji-small {
   font-style: normal;
-}
-
-.crosshairs:before,
-.crosshairs:after {
-  content: "";
-  position: absolute;
-  width: 27px;
-  height: 27px;
-  z-index: 999;
-  pointer-events: none;
-}
-
-.crosshairs:before {
-  bottom: 50%;
-  left: 50%;
-  transform: translate(-50%, 0);
-  border-bottom: 2px var(--dark-background-color) solid;
-}
-
-.crosshairs:after {
-  right: 50%;
-  top: 50%;
-  transform: translate(0, -50%);
-  border-right: 2px var(--dark-background-color) solid;
 }
 
 #map {
@@ -142,9 +127,9 @@ body {
   display: none;
 }
 
-input[type=submit] {
+input[type="submit"] {
   background: var(--dark-background-color) !important;
-  background-image: url(magnifying-glass-solid.svg)!important;
+  background-image: url(magnifying-glass-solid.svg) !important;
   background-size: 16px !important;
   background-position: 50% 50% !important;
   background-repeat: no-repeat !important;

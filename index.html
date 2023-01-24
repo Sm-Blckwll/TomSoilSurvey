@@ -13,7 +13,6 @@
 </head>
 
 <body>
-  <div class="crosshairs"></div>
   <div class="top-bar">
     <div class="textCon">
       <div class="emoji-small">🌍</div>
@@ -32,14 +31,25 @@
 
     const apiKey = "AAPK6d8dbbe84b034f5eba140cfdb06f70bckM0zbt6jwcBbSKTDT665flH_W-GHXfSHK1EHcXhE7GziB4MMZV1aj5U9Xya-YWRL";
     const basemapEnum = "ArcGIS:Imagery";
+    const basemapPlain = "ArcGIS:Streets";
 
     const map = L.map("map", {
       minZoom: 2
     }).setView([51.0156, -4.5042], 16);
 
-    L.esri.Vector.vectorBasemapLayer(basemapEnum, {
+    const Imagery = L.esri.Vector.vectorBasemapLayer(basemapEnum, {
       apiKey: apiKey
     }).addTo(map);
+
+    const Street = L.esri.Vector.vectorBasemapLayer(basemapPlain, {
+      apiKey: apiKey
+    })
+
+    const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    });
+
+    const layerControl = L.control.layers({ "OSM": osm, "Imagery": Imagery, "Street": Street }).addTo(map);
 
     let polygonsCoords = [
       [[51.01753, -4.50347], [51.01687, -4.50357], [51.01672, -4.50143], [51.01761, -4.50152]],
@@ -80,6 +90,8 @@
       [[50.99256, -4.31195], [50.99241, -4.31147], [50.99241, -4.31099], [50.99252, -4.31029], [50.99261, -4.30966], [50.99272, -4.30911], [50.99295, -4.30930], [50.99322, -4.30959], [50.99347, -4.30996], [50.99356, -4.31094], [50.99352, -4.31109], [50.99360, -4.31153], [50.99313, -4.31185], [50.99302, -4.31160], [50.99284, -4.31152], [50.99286, -4.31172]]
     ];
 
+    let toggle = '#fff';
+
     for (var i = 0; i < polygonsCoords.length; i++) {
       let polygon = L.polygon(polygonsCoords[i], {
         color: '#fff',
@@ -89,7 +101,6 @@
         dashArray: '3'
       });
       polygon.addTo(map);
-      var center = polygon.getBounds().getCenter();
       var center = polygon.getBounds().getCenter();
       var number = (i + 1).toString();
       var custom_icon = L.divIcon({
