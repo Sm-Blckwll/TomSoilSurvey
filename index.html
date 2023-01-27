@@ -19,18 +19,16 @@
   <style>
     @import url('./base.css');
   </style>
+  <link rel="Sm-Blckwll" href="https://sm-blckwll.github.io/TomSoilSurvey/" />
   <link rel="manifest" href="/TomSoilSurvey/manifest.json" />
+  <link rel="manifest" href="/TomSoilSurvey/manifest.webmanifest">
   <script>
-    if ('serviceWorker' in navigator) {
-      // Register the service worker
-      navigator.serviceWorker.register('/TomSoilSurvey/sw.js', { scope: '/TomSoilSurvey/' }).then(function (reg) {
-        console.log('Service worker registration succeeded:', reg);
-      }).catch(function (error) {
-        console.log('Service worker registration failed:', error);
-      });
-    } else {
-      console.log('Service workers are not supported.');
-    }
+    if (navigator.serviceWorker) {
+        navigator.serviceWorker.register (
+          '/TomSoilSurvey/sw.js',
+          {scope: '/TomSoilSurvey/'}
+        )
+      }
   </script>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
