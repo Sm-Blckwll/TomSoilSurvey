@@ -21,16 +21,15 @@
   </style>
   <link rel="manifest" href="manifest.json" />
   <script>
-    if ("serviceWorker" in navigator) {
-      // register service worker
-      navigator.serviceWorker.register("sw.js")
-        .then(function (registration) {
-          console.log("success load");
-        })
-        .catch(function (err) {
-          console.log(err);
-        });
-    }
+    if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').then(registration => {
+      console.log('Service worker registered: ', registration);
+    }).catch(registrationError => {
+      console.log('Service worker registration failed: ', registrationError);
+    });
+  });
+}
   </script>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
