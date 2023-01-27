@@ -22,14 +22,15 @@
   <link rel="manifest" href="manifest.json" />
   <script>
     if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('sw.js').then(registration => {
-      console.log('Service worker registered: ', registration);
-    }).catch(registrationError => {
-      console.log('Service worker registration failed: ', registrationError);
-    });
-  });
-}
+      // Register the service worker
+      navigator.serviceWorker.register('/sw.js', { scope: '/' }).then(function (reg) {
+        console.log('Service worker registration succeeded:', reg);
+      }).catch(function (error) {
+        console.log('Service worker registration failed:', error);
+      });
+    } else {
+      console.log('Service workers are not supported.');
+    }
   </script>
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
