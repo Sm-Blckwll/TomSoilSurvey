@@ -1,7 +1,7 @@
 {
     "name": "Tom Soil Tracker",
     "short_name": "Tom Tracker",
-    "start_url": "/",
+    "start_url": ".",
     "scope": "." ,
     "icons": [
         {
