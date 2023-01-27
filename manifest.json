@@ -1,27 +1,27 @@
 {
     "name": "Tom Soil Tracker",
     "short_name": "Tom Tracker",
-    "start_url": ".",
-    "scope": "." ,
+    "start_url": "/TomSoilSurvey/",
+    "scope": "/TomSoilSurvey/" ,
     "icons": [
         {
-            "src": "192x192.png",
+            "src": "/TomSoilSurvey/192x192.png",
             "sizes": "192x192",
             "type": "image/png"
         },
         {
-            "src": "maskable_icon.png",
+            "src": "/TomSoilSurvey/maskable_icon.png",
             "sizes": "192x192",
             "type": "image/png",
             "purpose": "maskable"
         },
         {
-            "src": "256x256.png",
+            "src": "/TomSoilSurvey/256x256.png",
             "sizes": "256x256",
             "type": "image/png"
         },
         {
-            "src": "512x512.png",
+            "src": "/TomSoilSurvey/512x512.png",
             "sizes": "512x512",
             "type": "image/png"
         }
