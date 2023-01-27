@@ -1,8 +1,7 @@
 {
     "name": "Tom Soil Tracker",
     "short_name": "Tom Tracker",
-    "start_url": "index.html",
-    "scope": "./",
+    "start_url": "https://sm-blckwll.github.io/TomSoilSurvey/",
     "icons": [
         {
             "src": "192x192.png",
