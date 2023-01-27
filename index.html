@@ -19,6 +19,19 @@
   <style>
     @import url('./base.css');
   </style>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      // register service worker
+      navigator.serviceWorker.register("service-worker.js")
+        .then(function (registration) {
+          console.log("success load");
+        })
+        .catch(function (err) {
+          console.log(err);
+        });
+    }
+  </script>
 </head>
 
 <body>
